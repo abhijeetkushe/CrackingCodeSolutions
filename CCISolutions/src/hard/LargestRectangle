@@ -1,0 +1,79 @@
+package hard;
+
+public class LargestRectangle
+{
+    static List<WordGroup> wordGroup = group(words);
+    static int maxLength = wordGroups.length * wordGroups.size();
+    static List<Trie> trieGroup = new ArrayList<>(maxLength);
+
+	static Rectangle largestRectangle(Set<String> words)
+	{
+		for(int z = maxLength; z > 1; z--)
+		{
+			for(int i = 1; i <= maxLength; i++)
+			{
+				if(z % i == 0)
+				{
+					int j = z/i;
+					Rectangle rect = getRectangle(i, j);
+					if(rect != null)
+					{
+						return rect;
+					}
+				}
+			}
+		}
+	}
+	
+	private static Rectangle getRectange(int length, int height)
+	{
+		if(wordGroup.get(length) == null || wordGroup.get(height) == null)
+		{
+			return null;
+		}
+		
+		if((trieGroup.get(height - 1) != null)
+		{
+			LinkedList<String> words = wordGroup.get(height - 1).getWords();
+			trieGroup.add(new Trie(words));
+		}
+		
+		return makePartialRectange(length, height, new Rectange(length));
+		
+	}
+	
+	private static Rectangle makePartialRectangle(int length, int height, Rectangle rectangle)
+	{
+		if(rectangle.height == h)
+		{
+			if(rectangle.isComplete(length, height, wordGroup.get(height - 1)))
+			{
+				return rectangle;
+			}else
+			{
+				return null;
+			}
+		}	
+			
+		if(!rectangle.isPartialComplete(trieGroup.getHeight(height - 1)))
+		{
+			return null;
+		}
+		
+		for(int i = 0; i < wordGroup.get(length - 1).length(); i++)
+		{
+			Rectangle rect = makePartialRectangle(l, h, rectangle.append(wordGroup.get(length - 1).get(i)));
+			if(rect != null)
+			{
+				return rect;
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		
+	}
+	
+}
